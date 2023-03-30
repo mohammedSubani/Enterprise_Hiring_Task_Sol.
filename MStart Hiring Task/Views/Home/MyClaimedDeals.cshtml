@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<ClaimedDeals>
+
+@{int totalAmount = 0;}
+
+@if (Model != null)
+
+{
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>ID</th>
+            <th>UserID </th>
+            <th>Deal_ID</th>
+            <th>Amount</th>
+            <th>Currency</th>
+        </tr>
+
+
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.ID</td>
+                <td>@d.UserId</td>
+                <td>@d.DealID</td>
+                <td>@d.Amount</td>
+                <td>@d.Currency</td>
+                @{totalAmount += d.Amount;}
+            </tr>
+        }
+    </table>
+
+    <p><strong><span style="color: midnightblue;">Total count of claimed deals  @Model.Count</span></strong></p>
+    <br>
+    <p><strong><span style="color: midnightblue;">Total amount of claimed deals @totalAmount</span></strong></p>
+    <br>
+
+}
+
+<p><strong><span style="color: midnightblue;">@ViewBag.MyDealsMsg</span></strong></p>

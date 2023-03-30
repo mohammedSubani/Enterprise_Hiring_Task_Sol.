@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-action="ChangeDealStatus" method="post" class="align-items-center">
+    <div class="form-group">
+        <label class="align-items-center">Deal ID</label>
+        <input type="number" class="form-control" id="id" name="id" placeholder="Enter deals ID">
+    </div>
+
+
+    <label class="align-items-center">Status</label>
+    <select name="status" id="status">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+        <option value="Deleted">Deleted</option>
+        <option value="Expired">Expired</option>
+    </select>
+    <br><br>
+
+    <br>
+
+    <div class="align-items-center">
+        <button type="submit" class="btn btn-primary">Change Deal Status</button>
+    </div>
+</form>
+
+<p><strong><span style="color: midnightblue;">@ViewBag.ChangeDealMsg</span></strong></p>

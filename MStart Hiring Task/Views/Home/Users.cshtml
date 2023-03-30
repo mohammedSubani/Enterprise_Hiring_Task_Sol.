@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Users";
+}
+<body>
+
+    @model List<User>
+    <p><strong><span style="color: midnightblue;">@ViewBag.UsersMsg</span></strong></p>
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>User ID </th>
+            <th>Name </th>
+            <th>Email </th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+        </tr>
+
+        @if (Model.Count <= 10)
+        {
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.ID</td>
+                    <td>@u.name</td>
+                    <td>@u.email</td>
+                    <td>@u.phone</td>
+                    <td>@u.status</td>
+                    <td>@u.gender</td>
+                    <td>@u.dateOfBirth</td>
+                </tr>
+
+            }
+        }
+
+        @if (Model.Count > 10)
+        {
+            @for (int i = 0; i < 10; i++)
+            {
+                <tr>
+                    <td>@Model.ElementAt(i).ID</td>
+                    <td>@Model.ElementAt(i).name</td>
+                    <td>@Model.ElementAt(i).email</td>
+                    <td>@Model.ElementAt(i).phone</td>
+                    <td>@Model.ElementAt(i).status</td>
+                    <td>@Model.ElementAt(i).gender</td>
+                    <td>@Model.ElementAt(i).dateOfBirth</td>
+                </tr>
+
+            }
+        }
+
+    </table>
+</body>

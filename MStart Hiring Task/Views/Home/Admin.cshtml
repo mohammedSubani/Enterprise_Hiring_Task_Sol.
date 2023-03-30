@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Admin page</h1>
+        
+    </div>
+
+    <form class="p-a-1">
+        <div class="text-center">
+
+            <button class="btn btn-primary" asp-action="AddDeal" method="post" type="submit" style="border:solid;border-color:white;">
+                Add Deal
+            </button>
+
+            <button class="btn btn-primary" asp-action="ChangeDealStatus" method="post" type="submit" style="border:solid;border-color:white;">
+                Change deal status
+            </button>
+
+            <button class="btn btn-primary" asp-action="ChangeUserStatus" method="post" type="submit" style="border:solid;border-color:white;">
+                Change users status
+            </button>
+
+            <button class="btn btn-primary" asp-action="Deals" method="post" type="submit" style="border:solid;border-color:white;">
+                View Deals
+            </button>
+
+            <button class="btn btn-primary" asp-action="Users" method="post" type="submit" style="border:solid;border-color:white;">
+                View Users
+            </button>
+
+            <button class="btn btn-primary" asp-action="ClaimedDeals" method="post" type="submit" style="border:solid;border-color:white;">
+                View Claimed Deals
+            </button>
+
+            <button class="btn btn-primary" asp-action="UserClaimedDeals" method="post" type="submit" style="border:solid;border-color:white;">
+                View Claimed Deals for a user
+            </button>
+
+            <button class="btn btn-primary" asp-action="DeleteUsers" method="post" type="submit" style="border:solid;border-color:white;">
+                Delete Users
+            </button>
+
+        </div>
+    </form>
+
+
+</body>

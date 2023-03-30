@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<Deal>
+<p><strong><span style="color: midnightblue;">@ViewBag.DealsMsg</span></strong></p>
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Deal ID </th>
+        <th>Name </th>
+        <th>Description </th>
+        <th>Status</th>
+        <th>Amount</th>
+        <th>Currency</th>
+    </tr>
+
+    @if (Model.Count <= 10)
+    {
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.ID</td>
+                <td>@d.name</td>
+                <td>@d.description</td>
+                <td>@d.status</td>
+                <td>@d.amount</td>
+                <td>@d.currency</td>
+            </tr>
+
+        }
+    }
+
+    @if (Model.Count > 10)
+    {
+        @for(int i=0;i<10;i++)
+        {
+            <tr>
+                <td>@Model.ElementAt(i).ID</td>
+                <td>@Model.ElementAt(i).name</td>
+                <td>@Model.ElementAt(i).description</td>
+                <td>@Model.ElementAt(i).status</td>
+                <td>@Model.ElementAt(i).amount</td>
+                <td>@Model.ElementAt(i).currency</td>
+            </tr>
+
+        }
+    }
+
+</table>

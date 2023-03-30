@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+
+    <div class="align-middle">
+        <div class="align-middle">
+            <h2 class="text-center"><strong>Login</strong></h2><br />
+            <form asp-action="login" method="post" class="align-items-center">
+
+                <div class="form-group">
+                    <label class="align-items-center">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                </div>
+
+                <div class="form-group">
+                    <label class="align-items-center">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+
+                <div class="align-items-center">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <p><strong><span style="color: #ff0000;">@ViewBag.ErrorMessage</span></strong></p>
+
+}

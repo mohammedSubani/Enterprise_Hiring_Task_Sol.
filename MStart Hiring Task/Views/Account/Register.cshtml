@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+<head>
+    <script>
+        var matchingPwd = function () {
+            if (document.getElementById('password').value ==
+                document.getElementById('re_password').value) {
+                document.getElementById('pwdMessage').style.color = 'green';
+                document.getElementById('pwdMessage').innerHTML = '✓ Passwords matched';
+            } else {
+                document.getElementById('pwdMessage').style.color = 'red';
+                document.getElementById('pwdMessage').innerHTML = '✕ Passwords not matching';
+            }
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <p><strong><span style="color: #ff0000;">@ViewBag.ErrorMessage2</span></strong></p>
+
+        <form asp-action="register" method="post" class="align-items-center">
+
+            <div class="form-group">
+                <label class="align-items-center">User Name</label>
+                <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter user name">
+            </div>
+
+            <div class="form-group">
+                <label class="align-items-center">Password</label>
+                <input type="password" class="form-control" name="password" id="password" onkeyup='matchingPwd();' placeholder="Enter a password">
+            </div>
+
+            <div class="form-group">
+                <label class="align-items-center">Confirm Password</label>
+                <input type="password" class="form-control" name="re_password" id="re_password" onkeyup='matchingPwd();' placeholder="Re-type password">
+            </div>
+            <span id='pwdMessage'></span>
+
+            <div class="form-group">
+                <label class="align-items-center">email</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label class="align-items-center">Phone Number</label>
+                <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number">
+            </div>
+
+
+            <div class="form-group">
+                <label class="align-items-center">Gender</label>
+                <br>
+
+                <input type="radio" class="float-left" name="gender" id="gender" value="Male">
+                <label class="float-md-left" style="font-size:small;">Male</label>
+
+                <input type="radio" class="float-left" name="gender" id="gender" value="Female">
+                <label class="float-md-left" style="font-size:small;" >Female</label>
+            </div>
+
+
+            <br>
+            <div class="form-group">
+                <label class="float-md-left" for="birthDate">Birthday</label><br>
+                <input style="float:left;" type="date" id="birthDate" name="birthDate">
+            </div>
+
+            <br>
+
+            <div class="align-items-center">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+
+        </form>
+
+
+
+    }
+
+
+
+</body>
